@@ -203,18 +203,21 @@ public class Creature {
 			modifyXp(amount);
 	}
 
-	public void modifyHp(int amount, String causeOfDeath) { 
-		hp += amount;
+	//modified by exam premise
+	public void modifyHp(int amount, String causeOfDeath) {
+		//updates health
+		hp = CombatRules.calculateNewHp(hp, maxHp, amount);
+    	//notes the last thing that caused it damage, whether it will die in the next step or not
 		this.causeOfDeath = causeOfDeath;
-		
-		if (hp > maxHp) {
-			hp = maxHp;
-		} else if (hp < 1) {
+
+		//if at lethal hp, kills itself and cleans up after itself
+	    if (CombatRules.isDead(hp)) {
 			doAction("die");
 			leaveCorpse();
 			world.remove(this);
-		}
+    	}
 	}
+
 	
 	private void leaveCorpse(){
 		Item corpse = new Item('%', color, name + " corpse", null);
