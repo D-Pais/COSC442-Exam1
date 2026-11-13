@@ -76,10 +76,7 @@
                     </targetClasses>
 
                     <targetTests>
-                        <param>EffectTest</param>
-                        <param>InventoryTest</param>
-                        <param>ItemTest</param>
-                        <param>SpellTest</param>
+                        <param>game.*</param>
                     </targetTests>
 
                     </configuration>
