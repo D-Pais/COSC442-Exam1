@@ -1,12 +1,10 @@
 package game;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.awt.Color;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.awt.Color;
 
 public class CreatureTest {
     private World world;
